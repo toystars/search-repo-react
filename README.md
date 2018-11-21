@@ -1,5 +1,9 @@
 # Search Repo from Github API React Code
-$ Thsi cose
+```
+
+Thsi cose
+
+```
 
 # How to run
 - git clone or download ZIP file
