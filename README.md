@@ -1,5 +1,5 @@
 # Search Repo from Github API React Code
-$Thsi cose
+$ Thsi cose
 
-#How to run
+# How to run
 
