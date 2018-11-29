@@ -53,5 +53,9 @@ constructor(props) {
     var repos = this.state.nameList;
     //console.log("Len: " + repos.length);
     var pagesNum = Math.ceil(repos.length / this.state.perPage);
-    
+    if (currPage === pagesNum || repos.length === 0) {
+    } else {
+      var newPage = currPage + 1;
+      this.setState({ currentPage: newPage });
+    }
   }   
