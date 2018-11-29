@@ -52,5 +52,6 @@ constructor(props) {
     var currPage = this.state.currentPage;
     var repos = this.state.nameList;
     //console.log("Len: " + repos.length);
+    var pagesNum = Math.ceil(repos.length / this.state.perPage);
     
   }   
