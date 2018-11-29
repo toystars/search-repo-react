@@ -142,4 +142,16 @@ var val = this.state.valueSearched
     );
     const repoArray = this.state.nameList;
     var repoList = repoArray.slice(indexOfFirstTodo, indexOfLastTodo);
-   
+   return (
+      <div>
+      <h2><center> Search Repo React App </center></h2>
+        <div className="col-md-12 normalize">
+          <input
+            className="form-control"
+            placeholder="Search Repo"
+            onChange={this.changeSearchVal}
+            type="text"
+          />
+          <center><button className = "btn" style = {{marginTop: '1%'}}onClick = {this.onClickSearch.bind(this)}> 
+       Search </button></center>
+        </div>
