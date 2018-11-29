@@ -16,3 +16,7 @@ constructor(props) {
       currentPage: 1,
       count: 0
     };
+    this.changeSearchVal = this.changeSearchVal.bind(this);
+    this.sortBy.bind(this);
+    this.compareBy.bind(this);
+  }
