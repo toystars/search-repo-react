@@ -69,3 +69,17 @@ constructor(props) {
       this.setState({ currentPage: newPage });
     }
   }   
+
+    compareBy(key) {
+    var count = this.state.count;
+    return function(a, b) {
+      if (count % 2 === 0) {
+        if (a[key] < b[key]) return 1;
+        if (a[key] > b[key]) return -1;
+      } else {
+        if (a[key] < b[key]) return -1;
+        if (a[key] > b[key]) return 1;
+      }
+      return 0;
+    };
+  }
