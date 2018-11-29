@@ -97,5 +97,7 @@ constructor(props) {
   }
 onClickSearch(){
 var val = this.state.valueSearched
-
+ if (val === ''){
+        alert ("You have to input a Repo Name to be searched")
+      } 
 }
