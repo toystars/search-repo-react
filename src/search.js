@@ -96,6 +96,6 @@ constructor(props) {
     this.setState({ perPage: pageno });
   }
 onClickSearch(){
-
+var val = this.state.valueSearched
 
 }
