@@ -119,3 +119,12 @@ var val = this.state.valueSearched
     });
 }
 }
+    
+     componentWillMount() {
+    if (localStorage.getItem("repoData") == null) {
+      //alert("empty");
+    } else {
+      //alert("not empty!");
+      this.setState({ nameList: JSON.parse(localStorage.getItem("repoData")) });
+    }
+  }
