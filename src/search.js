@@ -152,6 +152,6 @@ var val = this.state.valueSearched
             onChange={this.changeSearchVal}
             type="text"
           />
-          <center><button className = "btn" style = {{marginTop: '1%'}}onClick = {this.onClickSearch.bind(this)}> 
+          <center><button className = "btn" style = {{marginTop: '1%'}} onClick = {this.onClickSearch.bind(this)}> 
        Search </button></center>
         </div>
