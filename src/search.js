@@ -49,5 +49,8 @@ constructor(props) {
 }   
 
  nextBtn() {
+    var currPage = this.state.currentPage;
+    var repos = this.state.nameList;
+    //console.log("Len: " + repos.length);
     
   }   
