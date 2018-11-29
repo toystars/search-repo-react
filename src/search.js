@@ -28,6 +28,21 @@ constructor(props) {
        if (inputVal === ''){
 
     }else{
-      
+       axios
+    .get(`https://api.github.com/search/repositories?q=${inputVal}`)
+    .then(resp => {
+      console.log(resp.data.total_count);
+      this.setState({
+        nameList: resp.data.items,
+        nameListLength: resp.data.total_count
+      });
+           
+        .then(() => {
+          console.log("It was saved successfully");
+        })
+        .catch(() => {
+          console.log("There was an error saving the product");
+        });
+    }); 
     }
 }   
