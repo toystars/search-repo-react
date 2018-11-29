@@ -128,3 +128,15 @@ var val = this.state.valueSearched
       this.setState({ nameList: JSON.parse(localStorage.getItem("repoData")) });
     }
   }
+    
+     render() {
+    var indexOfLastTodo = this.state.currentPage * this.state.perPage;
+    var indexOfFirstTodo = indexOfLastTodo - this.state.perPage;
+    console.log(
+      "Page " +
+        this.state.currentPage +
+        ", Last Todo: " +
+        indexOfLastTodo +
+        ", First Todo: " +
+        indexOfFirstTodo
+    );
