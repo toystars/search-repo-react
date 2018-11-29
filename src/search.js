@@ -99,5 +99,23 @@ onClickSearch(){
 var val = this.state.valueSearched
  if (val === ''){
         alert ("You have to input a Repo Name to be searched")
-      } 
+      } else{
+  axios
+    .get(`https://api.github.com/search/repositories?q=${val}`)
+    .then(resp => {
+      console.log(resp.data.total_count);
+      this.setState({
+        nameList: resp.data.items,
+        nameListLength: resp.data.total_count
+      });
+      localStorage.setItem("repoData", JSON.stringify(resp.data.items));
+      AsyncStorage.setItem("repoValue", JSON.stringify(resp.data.items))
+        .then(() => {
+          console.log("It was saved successfully");
+        })
+        .catch(() => {
+          console.log("There was an error saving the product");
+        });
+    });
+}
 }
