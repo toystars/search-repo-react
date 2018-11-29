@@ -155,3 +155,16 @@ var val = this.state.valueSearched
           <center><button className = "btn" style = {{marginTop: '1%'}} onClick = {this.onClickSearch.bind(this)}> 
        Search </button></center>
         </div>
+<DisplayTable
+          perPageNum={this.perPageNum.bind(this)}
+          searchval={this.state.searchval}
+          repoList={repoList}
+          backBtn={this.backBtn.bind(this)}
+          nextBtn={this.nextBtn.bind(this)}
+          sortBy={this.sortBy.bind(this)}
+        />
+       {/* <div style ={loader}> </div> */}
+      </div>
+    );
+  }
+}
