@@ -91,3 +91,7 @@ constructor(props) {
     arrayCopy.sort(this.compareBy(key));
     this.setState({ nameList: arrayCopy });
   }
+      perPageNum(e) {
+    var pageno = e.target.value;
+    this.setState({ perPage: pageno });
+  }
