@@ -25,4 +25,9 @@ constructor(props) {
     var inputVal = e.target.value;
     this.setState({ valueSearched: inputVal });
     
+       if (inputVal === ''){
+
+    }else{
+      
+    }
 }   
