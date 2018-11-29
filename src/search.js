@@ -83,3 +83,11 @@ constructor(props) {
       return 0;
     };
   }
+    sortBy(key) {
+    var k = this.state.count;
+    k = k + 1;
+    this.setState({ count: k++ });
+    let arrayCopy = this.state.nameList;
+    arrayCopy.sort(this.compareBy(key));
+    this.setState({ nameList: arrayCopy });
+  }
