@@ -140,3 +140,6 @@ var val = this.state.valueSearched
         ", First Todo: " +
         indexOfFirstTodo
     );
+    const repoArray = this.state.nameList;
+    var repoList = repoArray.slice(indexOfFirstTodo, indexOfLastTodo);
+   
