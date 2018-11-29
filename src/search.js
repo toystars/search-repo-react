@@ -61,5 +61,11 @@ constructor(props) {
   }   
     
  backBtn() {
-   
+   var repos = this.state.nameList;
+    var currPage = this.state.currentPage;
+    if (currPage <= 1 || repos.length === 0) {
+    } else {
+      var newPage = currPage - 1;
+      this.setState({ currentPage: newPage });
+    }
   }   
