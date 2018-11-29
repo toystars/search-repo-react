@@ -37,7 +37,7 @@ constructor(props) {
         nameListLength: resp.data.total_count
       });
       localStorage.setItem("repoData", JSON.stringify(resp.data.items));
-      AsyncStorage.setItem("repoValue", JSON.stringify(resp.data.items))   
+      AsyncStorage.setItem("repoValue", JSON.stringify(resp.data.items));  
         .then(() => {
           console.log("It was saved successfully");
         })
