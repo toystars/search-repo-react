@@ -20,3 +20,9 @@ constructor(props) {
     this.sortBy.bind(this);
     this.compareBy.bind(this);
   }
+
+   changeSearchVal(e) {
+    var inputVal = e.target.value;
+    this.setState({ valueSearched: inputVal });
+    
+}   
