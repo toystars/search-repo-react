@@ -1,13 +1,13 @@
 import React from "react";
-//import ReactDOM from "react-dom";
+import ReactDOM from "react-dom";
 import axios from "axios";
 import "./search.css"
 
 import {AsyncStorage} from "AsyncStorage"
 import DisplayTable from './components/displayTable';
 
-export class SearchRepo extends React.Component{
-constructor(props) {
+export class SearchRepo extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       valueSearched: "",
@@ -21,14 +21,13 @@ constructor(props) {
     this.compareBy.bind(this);
   }
 
-   changeSearchVal(e) {
+  changeSearchVal(e) {
     var inputVal = e.target.value;
     this.setState({ valueSearched: inputVal });
-    
-       if (inputVal === ''){
+    if (inputVal === ''){
 
     }else{
-       axios
+     axios
     .get(`https://api.github.com/search/repositories?q=${inputVal}`)
     .then(resp => {
       console.log(resp.data.total_count);
@@ -37,40 +36,39 @@ constructor(props) {
         nameListLength: resp.data.total_count
       });
       localStorage.setItem("repoData", JSON.stringify(resp.data.items));
-      AsyncStorage.setItem("repoValue", JSON.stringify(resp.data.items));  
+      AsyncStorage.setItem("repoValue", JSON.stringify(resp.data.items))
         .then(() => {
           console.log("It was saved successfully");
         })
         .catch(() => {
           console.log("There was an error saving the product");
         });
-    }); 
-    }
-}   
-
- nextBtn() {
+    });
+  }
+}
+  nextBtn() {
     var currPage = this.state.currentPage;
     var repos = this.state.nameList;
-    //console.log("Len: " + repos.length);
+    console.log("Len: " + repos.length);
     var pagesNum = Math.ceil(repos.length / this.state.perPage);
     if (currPage === pagesNum || repos.length === 0) {
     } else {
       var newPage = currPage + 1;
       this.setState({ currentPage: newPage });
     }
-  }   
-    
- backBtn() {
-   var repos = this.state.nameList;
+  }
+
+  backBtn() {
+    var repos = this.state.nameList;
     var currPage = this.state.currentPage;
     if (currPage <= 1 || repos.length === 0) {
     } else {
       var newPage = currPage - 1;
       this.setState({ currentPage: newPage });
     }
-  }   
+  }
 
-    compareBy(key) {
+  compareBy(key) {
     var count = this.state.count;
     return function(a, b) {
       if (count % 2 === 0) {
@@ -83,7 +81,7 @@ constructor(props) {
       return 0;
     };
   }
-    sortBy(key) {
+  sortBy(key) {
     var k = this.state.count;
     k = k + 1;
     this.setState({ count: k++ });
@@ -91,13 +89,15 @@ constructor(props) {
     arrayCopy.sort(this.compareBy(key));
     this.setState({ nameList: arrayCopy });
   }
-      perPageNum(e) {
+
+  perPageNum(e) {
     var pageno = e.target.value;
     this.setState({ perPage: pageno });
   }
-onClickSearch(){
-var val = this.state.valueSearched
- if (val === ''){
+  onClickSearch(){
+    var val = this.state.valueSearched
+      //alert(val)
+      if (val === ''){
         alert ("You have to input a Repo Name to be searched")
       } else{
   axios
@@ -119,8 +119,7 @@ var val = this.state.valueSearched
     });
 }
 }
-    
-     componentWillMount() {
+  componentWillMount() {
     if (localStorage.getItem("repoData") == null) {
       //alert("empty");
     } else {
@@ -128,8 +127,7 @@ var val = this.state.valueSearched
       this.setState({ nameList: JSON.parse(localStorage.getItem("repoData")) });
     }
   }
-    
-     render() {
+  render() {
     var indexOfLastTodo = this.state.currentPage * this.state.perPage;
     var indexOfFirstTodo = indexOfLastTodo - this.state.perPage;
     console.log(
@@ -142,7 +140,7 @@ var val = this.state.valueSearched
     );
     const repoArray = this.state.nameList;
     var repoList = repoArray.slice(indexOfFirstTodo, indexOfLastTodo);
-   return (
+    return (
       <div>
       <h2><center> Search Repo React App </center></h2>
         <div className="col-md-12 normalize">
@@ -152,10 +150,10 @@ var val = this.state.valueSearched
             onChange={this.changeSearchVal}
             type="text"
           />
-          <center><button className = "btn" style = {{marginTop: '1%'}} onClick = {this.onClickSearch.bind(this)}> 
-       Search </button></center>
+          <center><button className = "btn" style = {{marginTop: '1%'}}onClick = {this.onClickSearch.bind(this)}> Search </button></center>
         </div>
-<DisplayTable
+
+        <DisplayTable
           perPageNum={this.perPageNum.bind(this)}
           searchval={this.state.searchval}
           repoList={repoList}
